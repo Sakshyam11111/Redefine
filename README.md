@@ -1,4 +1,4 @@
-**[View live]([https://expense-tracker-seven-silk.vercel.app/](https://redefinenetlifynetlify.netlify.app/))**
+**[View live](https://redefinenetlifynetlify.netlify.app/)**
 
 # React + Vite
 
