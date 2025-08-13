@@ -39,23 +39,11 @@ const VideoPreview = ({ children }) => (
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [loadedVideos, setLoadedVideos] = useState(0);
-
-  const totalVideos = 4;
   const nextVdRef = useRef(null);
   const currentVideoRef = useRef(null);
   const frameRef = useRef(null);
 
-  const handleVideoLoad = () => {
-    setLoadedVideos((prev) => prev + 1);
-  };
-
-  useEffect(() => {
-    if (loadedVideos === totalVideos - 1) {
-      setLoading(false);
-    }
-  }, [loadedVideos]);
+  const totalVideos = 4;
 
   const handleMiniVdClick = () => {
     setHasClicked(true);
@@ -98,18 +86,6 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Enhanced Loading Screen */}
-      {loading && (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-          <div className="relative">
-            <div className="w-16 h-16 border-4 border-purple-300/20 border-t-purple-400 rounded-full animate-spin mb-6"></div>
-            <div className="absolute inset-0 w-16 h-16 border-4 border-blue-300/20 border-t-blue-400 rounded-full animate-spin animation-delay-75"></div>
-          </div>
-          <div className="text-white text-lg font-medium animate-pulse">Loading Experience...</div>
-          <div className="mt-2 text-purple-300 text-sm">{Math.round((loadedVideos / (totalVideos - 1)) * 100)}%</div>
-        </div>
-      )}
-
       {/* Main Video Frame */}
       <div
         ref={frameRef}
@@ -131,7 +107,6 @@ const Hero = () => {
                   loop
                   muted
                   className="w-full h-full object-cover rounded-lg"
-                  onLoadedData={handleVideoLoad}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-lg" />
               </div>
@@ -146,7 +121,6 @@ const Hero = () => {
             muted
             id="next-video"
             className="absolute inset-0 w-full h-full object-cover invisible opacity-0"
-            onLoadedData={handleVideoLoad}
           />
 
           {/* Main Background Video */}
@@ -156,7 +130,6 @@ const Hero = () => {
             loop
             muted
             className="absolute inset-0 w-full h-full object-cover"
-            onLoadedData={handleVideoLoad}
           />
 
           {/* Video Overlay */}
