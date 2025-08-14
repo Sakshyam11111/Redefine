@@ -142,7 +142,7 @@ const Hero = () => {
           <div className="pt-8 sm:pt-12 md:pt-16 lg:pt-20">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-none">
-                REDEFIN<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">N</span>E
+                REDEFI<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">N</span>E
               </h1>
               
               <div className="max-w-md space-y-4">
